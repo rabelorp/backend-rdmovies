@@ -1,0 +1,19 @@
+FROM node:20.17.0 AS dependencies
+WORKDIR /dependencies
+COPY package*.json ./
+RUN npm install --verbose
+
+FROM node:20.17.0 AS build
+WORKDIR /build
+COPY --from=dependencies /dependencies/node_modules ./node_modules
+COPY . .
+RUN npm run build
+
+FROM node:20.17.0 AS api
+WORKDIR /usr/src/app
+COPY --from=dependencies /dependencies/node_modules ./node_modules
+COPY . .
+COPY --from=build /build .
+
+EXPOSE ${APP_PORT} 
+CMD ["npm", "run", "start"]

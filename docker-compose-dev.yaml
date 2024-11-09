@@ -1,0 +1,52 @@
+services:
+  database:
+    image: postgres:17.0-alpine
+    container_name: rdmovies-postgres
+    ports:
+      - ${DATABASE_PORT}:5432
+    volumes:
+      - rdmovies-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    networks:
+      - rdmovies-network
+
+  maildev:
+    build:
+      context: .
+      dockerfile: maildev.Dockerfile
+    container_name: rdmovies-maildev
+    ports:
+      - ${MAIL_CLIENT_PORT}:1080
+      - ${MAIL_PORT}:1025
+    networks:
+      - rdmovies-network
+
+  adminer:
+    image: adminer
+    container_name: rdmovies-adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - rdmovies-network
+
+  # api:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: rdmovies-api
+  #   ports:
+  #     - ${APP_PORT}:${APP_PORT}
+  #   networks:
+  #     - rdmovies-network
+  #   depends_on:
+  #     - database
+
+networks:
+  rdmovies-network:
+    driver: bridge
+volumes:
+  rdmovies-db:
