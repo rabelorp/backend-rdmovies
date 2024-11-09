@@ -49,6 +49,14 @@
    npm run start:dev
    ```
 
+1. Ou simplesmente rode a aplicação em modo .devContainer
+
+   ```bash
+   CTRL+SHIFT+P
+
+   Digite: Dev Containers: Reopen in Container
+   ```
+
 1. Acesse via <http://localhost:9000>
 
 ---
