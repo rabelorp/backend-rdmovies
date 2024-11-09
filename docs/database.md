@@ -2,19 +2,20 @@
 
 ## Tabela de Documentação <!-- omit in toc -->
 
-- [Sobre o banco de dados](#sobre-o-banco-de-dados)
-- [Trabalhando com o banco de dados (TypeORM)](#trabalhando-com-o-banco-de-dados-typeorm)
-  - [Gerar migration](#gerar-migration)
-  - [Rodar migration](#rodar-migration)
-  - [Reverter migration](#reverter-migration)
-  - [Excluir todas tabelas](#excluir-todas-tabelas)
-- [Seeding (TypeORM)](#seeding-typeorm)
-  - [Crie seeds](#crie-seeds)
-  - [Rode seed](#rode-seed)
-  - [Factory e Faker](#factory-e-faker)
-- [Performance e otimização (PostgreSQL + TypeORM)](#performance-e-otimização-postgresql--typeorm)
-  - [Indexes e Foreign Keys](#indexes-e-foreign-keys)
-  - [Conexões](#conexões)
+- [Banco de Dados](#banco-de-dados)
+  - [Sobre o banco de dados](#sobre-o-banco-de-dados)
+  - [Trabalhando com o banco de dados (TypeORM)](#trabalhando-com-o-banco-de-dados-typeorm)
+    - [Gerar migration](#gerar-migration)
+    - [Rodar migration](#rodar-migration)
+    - [Reverter migration](#reverter-migration)
+    - [Excluir todas tabelas](#excluir-todas-tabelas)
+  - [Seeding (TypeORM)](#seeding-typeorm)
+    - [Crie seeds](#crie-seeds)
+    - [Rode seed](#rode-seed)
+    - [Factory e Faker](#factory-e-faker)
+  - [Performance e otimização (PostgreSQL + TypeORM)](#performance-e-otimização-postgresql--typeorm)
+    - [Indexes e Foreign Keys](#indexes-e-foreign-keys)
+    - [Conexões](#conexões)
 
 ## Sobre o banco de dados
 
@@ -191,7 +192,7 @@ npm run seed:run:relational
 
 ### Indexes e Foreign Keys
 
-Não se esqueça de criar índices nas colunas de Chaves Estrangeiras (FK) (se necessário), pois, por padrão, o PostgreSQL  não adiciona índices automaticamente às FKs.
+Não se esqueça de criar índices nas colunas de Chaves Estrangeiras (FK) (se necessário), pois, por padrão, o PostgreSQL não adiciona índices automaticamente às FKs.
 
 ### Conexões
 
@@ -205,6 +206,6 @@ Quantidade de conexões que o banco de dados pode lidar
 
 ---
 
-Próximo: [Arquitetura Hexagonal](architecture.md)
+Anterior: [Arquitetura Hexagonal](architecture.md)
 
 Próximo: [Autenticação](auth.md)

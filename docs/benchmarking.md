@@ -2,7 +2,8 @@
 
 ## Tabela de Documentação <!-- omit in toc -->
 
-- [Apache Benchmark](#apache-benchmark)
+- [Teste de benchmarking](#teste-de-benchmarking)
+  - [Apache Benchmark](#apache-benchmark)
 
 ## Apache Benchmark
 
@@ -14,4 +15,4 @@ docker run --rm --network rd-movie_rdmovies-network jordi/ab -n 100 -c 100 -T ap
 
 Anterior: [Testes](tests.md)
 
-Próximo: [Principal](../README.md)
+Próximo: [Definição Técnica](technical-definition.md)

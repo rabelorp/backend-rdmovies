@@ -2,8 +2,9 @@
 
 ## Tabela de Documentação<!-- omit in toc -->
 
-- [Desenvolvimento local](#desenvolvimento-local)
-- [Links](#links)
+- [Instalação e Execução](#instalação-e-execução)
+  - [Desenvolvimento local](#desenvolvimento-local)
+  - [Links](#links)
 
 ## Desenvolvimento local
 
@@ -55,7 +56,7 @@
 ## Links
 
 - Swagger (API docs): <http://localhost:9000/api/docs>
-- Adminer (client for DB): <http://localhost:8080>
+- Adminer (cliente para banco de dados): <http://localhost:8080>
 - Maildev: <http://localhost:1080>
 
 ---

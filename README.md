@@ -13,6 +13,8 @@ Esta aplicação é baseada no [IMDb](https://www.imdb.com/) (Internet Movie Dat
 - [Upload de Arquivos](docs/file-uploading.md)
 - [Testes](docs/tests.md)
 - [Benchmarking](docs/benchmarking.md)
+- [Definição Técnica](docs/technical-definition.md)
 
 ---
-Desenvolvido por [RabeloDigital](https://rabelodigital.com/) -  ® Todos direitos reservado
+
+Desenvolvido por [RabeloDigital](https://rabelodigital.com/) - ® Todos direitos reservado
