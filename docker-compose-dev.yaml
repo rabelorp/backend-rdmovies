@@ -33,17 +33,17 @@ services:
     networks:
       - rdmovies-network
 
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile-dev
-    container_name: rdmovies-api
-    ports:
-      - ${APP_PORT}:${APP_PORT}
-    networks:
-      - rdmovies-network
-    depends_on:
-      - database
+  # api:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile-dev
+  #   container_name: rdmovies-api
+  #   ports:
+  #     - ${APP_PORT}:${APP_PORT}
+  #   networks:
+  #     - rdmovies-network
+  #   depends_on:
+  #     - database
 
 networks:
   rdmovies-network:
