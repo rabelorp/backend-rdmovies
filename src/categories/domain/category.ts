@@ -1,23 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class Movies {
-  @ApiProperty()
-  categoryId: string;
-
-  @ApiProperty()
-  releaseDate: Date;
-
+export class Category {
   @ApiProperty()
   description: string;
 
   @ApiProperty()
-  title: string;
-
-  @ApiProperty()
-  directors?: string[];
-
-  @ApiProperty()
-  actors?: string[];
+  name: string;
 
   @ApiProperty({
     type: String,

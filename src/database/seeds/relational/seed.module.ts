@@ -10,13 +10,16 @@ import { UserSeedModule } from './user/user-seed.module';
 import databaseConfig from '../../config/database.config';
 import appConfig from '../../../config/app.config';
 import { MoviesSeedModule } from './movies/movies-seed.module';
-
+import { RatingsSeedModule } from './ratings/ratings-seed.module';
+import { CategorySeedModule } from './category/category-seed.module';
 @Module({
   imports: [
     RoleSeedModule,
     StatusSeedModule,
     UserSeedModule,
     MoviesSeedModule,
+    RatingsSeedModule,
+    CategorySeedModule,
     ConfigModule.forRoot({
       isGlobal: true,
       load: [databaseConfig, appConfig],
