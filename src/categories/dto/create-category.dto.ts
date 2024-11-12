@@ -1,15 +1,10 @@
-import {
-  // decorators here
+import { IsString } from 'class-validator';
 
-  IsString,
-} from 'class-validator';
-
-import {
-  // decorators here
-  ApiProperty,
-} from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateCategoryDto {
+  id?: string;
+
   @ApiProperty()
   @IsString()
   description: string;
@@ -17,6 +12,4 @@ export class CreateCategoryDto {
   @ApiProperty()
   @IsString()
   name: string;
-
-  // Don't forget to use the class-validator decorators in the DTO properties.
 }

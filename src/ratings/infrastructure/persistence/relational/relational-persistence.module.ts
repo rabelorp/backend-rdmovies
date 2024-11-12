@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { RatingsRepository } from '../ratings.repository';
+import { RatingsRepository } from '../ratings.abstract';
 import { RatingsRelationalRepository } from './repositories/ratings.repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RatingsEntity } from './entities/ratings.entity';

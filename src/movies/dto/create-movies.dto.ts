@@ -1,6 +1,9 @@
-import { IsArray, IsString } from 'class-validator';
+import { IsArray, IsString, IsUUID } from 'class-validator';
 
 import { ApiProperty } from '@nestjs/swagger';
+import { CreateCategoryDto } from 'src/categories/dto/create-category.dto';
+import { CreateRatingsDto } from 'src/ratings/dto/create-ratings.dto';
+import { FileDto } from 'src/files/dto/file.dto';
 
 export class CreateMoviesDto {
   @ApiProperty()
@@ -19,6 +22,13 @@ export class CreateMoviesDto {
   @IsString()
   title: string;
 
+  @ApiProperty()
+  @IsUUID()
+  photoId: string;
+
+  @ApiProperty({ type: () => FileDto })
+  photo: FileDto;
+
   @ApiProperty({
     type: [String],
     description:
@@ -36,4 +46,8 @@ export class CreateMoviesDto {
   @IsArray()
   @IsString({ each: true })
   actors?: string[];
+
+  category?: CreateCategoryDto;
+
+  ratings?: CreateRatingsDto;
 }

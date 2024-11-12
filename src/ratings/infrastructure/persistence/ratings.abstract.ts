@@ -14,7 +14,10 @@ export abstract class RatingsRepository {
     paginationOptions: IPaginationOptions;
   }): Promise<Ratings[]>;
 
-  abstract findById(id: Ratings['id']): Promise<NullableType<Ratings>>;
+  abstract findById(
+    id: Ratings['id'],
+    userId?: Ratings['userId'],
+  ): Promise<NullableType<Ratings>>;
 
   abstract update(
     id: Ratings['id'],

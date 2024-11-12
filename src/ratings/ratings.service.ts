@@ -1,7 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import {
+  HttpStatus,
+  Injectable,
+  UnprocessableEntityException,
+} from '@nestjs/common';
 import { CreateRatingsDto } from './dto/create-ratings.dto';
 import { UpdateRatingsDto } from './dto/update-ratings.dto';
-import { RatingsRepository } from './infrastructure/persistence/ratings.repository';
+import { RatingsRepository } from './infrastructure/persistence/ratings.abstract';
 import { IPaginationOptions } from '../utils/types/pagination-options';
 import { Ratings } from './domain/ratings';
 
@@ -9,8 +13,24 @@ import { Ratings } from './domain/ratings';
 export class RatingsService {
   constructor(private readonly ratingsRepository: RatingsRepository) {}
 
-  create(createRatingsDto: CreateRatingsDto) {
-    return this.ratingsRepository.create(createRatingsDto);
+  async create(createRatingsDto: CreateRatingsDto) {
+    const ratings = await this.ratingsRepository.findById(
+      createRatingsDto.movieId,
+      createRatingsDto.userId,
+    );
+    if (
+      ratings?.userId === createRatingsDto.userId &&
+      ratings?.movieId === createRatingsDto.movieId
+    ) {
+      throw new UnprocessableEntityException({
+        status: HttpStatus.UNPROCESSABLE_ENTITY,
+        errors: {
+          reservation: 'voteAlreadyExists',
+        },
+      });
+    } else {
+      return this.ratingsRepository.create(createRatingsDto);
+    }
   }
 
   findAllWithPagination({

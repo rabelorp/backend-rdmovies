@@ -7,30 +7,22 @@ import {
   ManyToOne,
   JoinColumn,
   Index,
+  OneToOne,
 } from 'typeorm';
 import { EntityRelationalHelper } from '../../../../../utils/relational-entity-helper';
 import { ApiProperty } from '@nestjs/swagger';
 import { CategoryEntity } from 'src/categories/infrastructure/persistence/relational/entities/category.entity';
 import { RatingsEntity } from 'src/ratings/infrastructure/persistence/relational/entities/ratings.entity';
+import { FileEntity } from 'src/files/infrastructure/persistence/relational/entities/file.entity';
 
 @Entity({
   name: 'movies',
 })
 export class MoviesEntity extends EntityRelationalHelper {
-  // @ApiProperty()
-  // @Column({ type: 'bigint', nullable: true })
-  // ratingCount: string;
+  @OneToOne(() => RatingsEntity, (rating) => rating.movie, { eager: true })
+  ratings: RatingsEntity;
 
-  @ApiProperty()
-  @Column({ type: 'uuid', nullable: false })
-  categoryId: string;
-
-  @ManyToOne(() => RatingsEntity, { nullable: true })
-  @JoinColumn({ name: 'ratingId' })
-  @Index()
-  rating: RatingsEntity;
-
-  @ManyToOne(() => CategoryEntity, { nullable: true })
+  @ManyToOne(() => CategoryEntity, { eager: true, nullable: true })
   @JoinColumn({ name: 'categoryId' })
   @Index()
   category: CategoryEntity;
@@ -46,6 +38,15 @@ export class MoviesEntity extends EntityRelationalHelper {
   @ApiProperty()
   @Column({ type: 'text', nullable: false })
   title: string;
+
+  @ApiProperty({
+    type: () => FileEntity,
+  })
+  @OneToOne(() => FileEntity, {
+    eager: true,
+  })
+  @JoinColumn({ name: 'photoId' })
+  photo: FileEntity;
 
   @ApiProperty()
   @Column('jsonb', { nullable: true })

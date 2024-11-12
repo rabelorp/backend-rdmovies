@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { RatingsEntity } from '../entities/ratings.entity';
 import { NullableType } from '../../../../../utils/types/nullable.type';
 import { Ratings } from '../../../../domain/ratings';
-import { RatingsRepository } from '../../ratings.repository';
+import { RatingsRepository } from '../../ratings.abstract';
 import { RatingsMapper } from '../mappers/ratings.mapper';
 import { IPaginationOptions } from '../../../../../utils/types/pagination-options';
 
@@ -36,9 +36,12 @@ export class RatingsRelationalRepository implements RatingsRepository {
     return entities.map((user) => RatingsMapper.toDomain(user));
   }
 
-  async findById(id: Ratings['id']): Promise<NullableType<Ratings>> {
+  async findById(
+    id: Ratings['id'],
+    userId: Ratings['userId'],
+  ): Promise<NullableType<Ratings>> {
     const entity = await this.ratingsRepository.findOne({
-      where: { id },
+      where: { movieId: id, userId: userId },
     });
 
     return entity ? RatingsMapper.toDomain(entity) : null;

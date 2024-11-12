@@ -1,4 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { CreateCategoryDto } from 'src/categories/dto/create-category.dto';
+import { FileType } from 'src/files/domain/file';
+import { CreateRatingsDto } from 'src/ratings/dto/create-ratings.dto';
 
 export class Movies {
   @ApiProperty()
@@ -12,6 +15,14 @@ export class Movies {
 
   @ApiProperty()
   title: string;
+
+  @ApiProperty()
+  photoId: string;
+
+  @ApiProperty({
+    type: () => FileType,
+  })
+  photo: FileType;
 
   @ApiProperty()
   directors?: string[];
@@ -29,4 +40,8 @@ export class Movies {
 
   @ApiProperty()
   updatedAt: Date;
+
+  category?: CreateCategoryDto;
+
+  ratings?: CreateRatingsDto;
 }
