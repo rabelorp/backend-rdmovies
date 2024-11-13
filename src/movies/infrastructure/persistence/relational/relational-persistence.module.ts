@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { MoviesRepository } from '../movies.repository';
+import { MoviesRepository } from '../movies.abstract';
 import { MoviesRelationalRepository } from './repositories/movies.repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MoviesEntity } from './entities/movies.entity';

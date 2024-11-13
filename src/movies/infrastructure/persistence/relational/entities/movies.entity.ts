@@ -8,6 +8,7 @@ import {
   JoinColumn,
   Index,
   OneToOne,
+  OneToMany,
 } from 'typeorm';
 import { EntityRelationalHelper } from '../../../../../utils/relational-entity-helper';
 import { ApiProperty } from '@nestjs/swagger';
@@ -19,8 +20,8 @@ import { FileEntity } from 'src/files/infrastructure/persistence/relational/enti
   name: 'movies',
 })
 export class MoviesEntity extends EntityRelationalHelper {
-  @OneToOne(() => RatingsEntity, (rating) => rating.movie, { eager: true })
-  ratings: RatingsEntity;
+  @OneToMany(() => RatingsEntity, (rating) => rating.movie, { eager: true })
+  ratings: RatingsEntity[];
 
   @ManyToOne(() => CategoryEntity, { eager: true, nullable: true })
   @JoinColumn({ name: 'categoryId' })

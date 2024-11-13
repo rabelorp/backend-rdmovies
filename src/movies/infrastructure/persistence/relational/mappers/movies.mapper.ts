@@ -14,9 +14,12 @@ export class MoviesMapper {
     domainEntity.category.id = raw.category?.id;
     domainEntity.category.name = raw.category?.name;
 
-    if (raw.ratings) {
+    if (raw.ratings && raw.ratings.length > 0) {
       domainEntity.ratings = new CreateRatingsDto();
-      domainEntity.ratings.rating = raw.ratings.rating;
+      const total = raw.ratings.reduce((sum, rating) => sum + rating.rating, 0);
+      const averageRating = total / raw.ratings.length;
+      domainEntity.ratings.rating = averageRating;
+      domainEntity.ratings.totalRatings = raw.ratings.length;
     }
 
     domainEntity.releaseDate = raw.releaseDate;

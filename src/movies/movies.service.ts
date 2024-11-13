@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateMoviesDto } from './dto/create-movies.dto';
 import { UpdateMoviesDto } from './dto/update-movies.dto';
-import { MoviesRepository } from './infrastructure/persistence/movies.repository';
+import { MoviesRepository } from './infrastructure/persistence/movies.abstract';
 import { IPaginationOptions } from '../utils/types/pagination-options';
 import { Movies } from './domain/movies';
 

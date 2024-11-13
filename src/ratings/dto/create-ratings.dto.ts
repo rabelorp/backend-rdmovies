@@ -1,6 +1,7 @@
 import { IsString, IsNumber, IsInt, IsIn } from 'class-validator';
 
 import { ApiProperty } from '@nestjs/swagger';
+import { Expose } from 'class-transformer';
 
 export class CreateRatingsDto {
   id?: string;
@@ -9,6 +10,9 @@ export class CreateRatingsDto {
   @IsNumber()
   @IsIn([1, 2, 3, 4], { message: 'O voto deve ser 1, 2, 3 ou 4' })
   rating: number;
+
+  @Expose()
+  totalRatings?: number;
 
   @ApiProperty()
   @IsString()

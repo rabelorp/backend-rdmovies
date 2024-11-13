@@ -4,7 +4,7 @@ import { Not, Repository } from 'typeorm';
 import { SessionEntity } from '../entities/session.entity';
 import { NullableType } from '../../../../../utils/types/nullable.type';
 
-import { SessionRepository } from '../../session.repository';
+import { SessionRepository } from '../../session.abstract';
 import { Session } from '../../../../domain/session';
 
 import { SessionMapper } from '../mappers/session.mapper';

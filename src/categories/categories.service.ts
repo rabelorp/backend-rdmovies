@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
-import { CategoryRepository } from './infrastructure/persistence/category.repository';
+import { CategoryRepository } from './infrastructure/persistence/category.abstract';
 import { IPaginationOptions } from '../utils/types/pagination-options';
 import { Category } from './domain/category';
 

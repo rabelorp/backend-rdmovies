@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { CategoryEntity } from '../entities/category.entity';
 import { NullableType } from '../../../../../utils/types/nullable.type';
 import { Category } from '../../../../domain/category';
-import { CategoryRepository } from '../../category.repository';
+import { CategoryRepository } from '../../category.abstract';
 import { CategoryMapper } from '../mappers/category.mapper';
 import { IPaginationOptions } from '../../../../../utils/types/pagination-options';
 

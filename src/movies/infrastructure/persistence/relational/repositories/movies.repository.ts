@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { MoviesEntity } from '../entities/movies.entity';
 import { NullableType } from '../../../../../utils/types/nullable.type';
 import { Movies } from '../../../../domain/movies';
-import { MoviesRepository } from '../../movies.repository';
+import { MoviesRepository } from '../../movies.abstract';
 import { MoviesMapper } from '../mappers/movies.mapper';
 import { IPaginationOptions } from '../../../../../utils/types/pagination-options';
 
